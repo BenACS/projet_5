@@ -1,0 +1,24 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+/* BARRE DE NAVIGATION */
+
+nav {
+	background: pink;
+
+}
+
+nav ul {
+	list-style-type: none;
+	margin: 0;
+	display: flex;
+    justify-content: space-around;
+}
+
+/* FICHE PERSO */
+
+#statusPerso {
+	display: flex;
+}
