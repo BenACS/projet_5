@@ -7,7 +7,6 @@ html, body {
 
 nav {
 	background: pink;
-
 }
 
 nav ul {
@@ -19,6 +18,30 @@ nav ul {
 
 /* FICHE PERSO */
 
-#statusPerso {
+#statusPerso, #inventairePerso {
 	display: flex;
+	justify-content: space-around;
+	margin: 5px 2.5px;
+}
+
+#statusPerso div, #inventairePerso div {
+	border: 1px solid black;
+	margin: 0 2.5px;
+	padding: 4px;
+	width: 100%;
+}
+
+#stats input {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-end;
+}
+
+#inventairePerso textarea {
+	width: 400px;
+	height: 200px;
+}
+
+#boutonsFiche {
+	text-align: center;
 }

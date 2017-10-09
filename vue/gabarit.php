@@ -10,7 +10,5 @@
 		<div id="contenu">
 			<?= $contenu ?>
 		</div>
-		<!-- A SUPPRIMER, TEST -->
-		<?php include "vueFichePerso.php"; ?>
 	</body>
 </html>

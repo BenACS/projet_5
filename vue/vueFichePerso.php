@@ -1,7 +1,7 @@
 <form id="formCreationPerso" method="POST">
 	<div id="statusPerso">
 		<!-- Infos de base -->
-		<div>
+		<div id="infos">
 			<label for="nom">Nom du personnage :</label></br>
 			<input type="text" name="nom"></br>
 
@@ -11,13 +11,12 @@
 				<option value="nain">Nain</option>
 				<option value="orc">Orc</option>
 				<option value="elfe">Elfe</option>
-			</select>
+			</select></br>
 
-			<label for="sexe">Sexe :</label>
+			<label for="sexe">Sexe :</label></br>
 			<select name="sexe">
 				<option value="M">Homme</option>
 				<option value="F">Femme</option>
-				<option value="troll">Helicoptère d'attaque</option>
 			</select></br>
 
 			<label for="classe">Classe :</label></br>
@@ -28,7 +27,7 @@
 		</div>
 
 		<!-- Stats -->
-		<div>
+		<div id="stats">
 			<label for="force">Force</label>
 			<input type="number" name="" min="1" max="70"></br>
 
@@ -47,21 +46,30 @@
 			<label for="charisme">Charisme</label>
 			<input type="number" name="" min="1" max="70">
 		</div>
-	</div></br>
-	<div id="objetsPerso">
-		<!-- Equipements -->
-		<div>
-			<label for="equipements">Equipements :</label></br>
-			<textarea name="equipements" placeholder="Armures, Armes, etc"></textarea>
-		</div>
+	</div>
+	<div id="inventairePerso">
+		<!-- Equipement & objets -->
+		<div id="inventaire">
+			<label for="equipement">Equipements :</label></br>
+			<textarea name="equipement" placeholder="Armures, Armes, etc"></textarea></br>
 
-		<!-- Objets -->
-		<div>
 			<label for="objets">Objets :</label></br>
 			<textarea name="objects"></textarea>
 		</div>
+
+		<!-- Compétences & sorts -->
+		<div id="competences">
+			<label for="competences">Compétences :</label></br>
+			<textarea name="competences"></textarea></br>
+
+			<label for="sorts">Sorts :</label></br>
+			<textarea name="sorts"></textarea>
+		</div>
 	</div></br>
+
 	<!-- Confirmer / Réinitialiser -->
-	<input type="submit" value="Créer ce personnage">
-	<input type="reset" value="Réinitialiser la fiche">
+	<div id="boutonsFiche">
+		<input type="submit" value="Créer ce personnage">
+		<input type="reset" value="Réinitialiser la fiche">
+	</div>
 </form>
