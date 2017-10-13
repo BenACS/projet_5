@@ -18,14 +18,22 @@ class Routeur {
     public function routerRequete() {
         try {
             if (isset($_GET['action'])) {
-                if ($_GET['action'] == 'nouvFiche') {
-                    $vue = new Vue("FichePerso");
-                    $vue->generer(array());
-                }
-                else if ($_GET['action'] == 'connexion') {
-                    $pseudo = $this->getParametre($_POST, 'pseudo');
-                    $mdp = $this->getParametre($_POST, 'mdp');
-                    $this->ctrlUtilisateur->connect($pseudo, $mdp);
+                switch($_GET['action']) {
+                    case 'nouvFiche':
+                        $vue = new Vue("FichePerso");
+                        $vue->generer(array());
+                    break;
+                    case 'inscription':
+                        $pseudo = $this->getParametre($_POST, 'pseudo');
+                        $mdp = $this->getParametre($_POST, 'mdp');
+                        $confirmer_mdp = $this->getParametre($_POST, 'confirmer_mdp');
+                        $this->ctrlUtilisateur->inscrire($pseudo, $mdp, $confirmer_mdp);
+                    break;
+                    case 'connexion':
+                        $pseudo = $this->getParametre($_POST, 'pseudo');
+                        $mdp = $this->getParametre($_POST, 'mdp');
+                        $this->ctrlUtilisateur->connecter($pseudo, $mdp);
+                    break;
                 }
             }
             else {  // aucune action définie : affichage de l'accueil

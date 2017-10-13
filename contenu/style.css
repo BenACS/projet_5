@@ -16,6 +16,23 @@ nav ul {
     justify-content: space-around;
 }
 
+/* CONNEXION & INSCRIPTION */
+
+#formConnexion, #formInscription {
+	display: none; /* Obligatoire */
+	background: cyan;
+	padding: 4px;
+	border: 1px solid black;
+	border-radius: 4px;
+	position: absolute;
+	top: 22px;
+	right: 120px;
+}
+
+.inputs_css {
+	margin: 5px 0;
+}
+
 /* FICHE PERSO */
 
 #statusPerso, #inventairePerso {

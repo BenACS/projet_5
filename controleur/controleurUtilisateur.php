@@ -11,7 +11,15 @@ class ControleurUtilisateur {
 		$this->utilisateur = new Utilisateur();
 	}
 
-	public function connect($login, $mdp) {
+	public function inscrire($pseudo, $mdp, $confirmer_mdp) {
+		if ($mdp === $confirmer_mdp) {
+			$this->utilisateur->ajouterUtilisateur($pseudo, $mdp);
+		}
+		else
+			throw new Exception("Les mots de passe ne correspondent pas. Veuillez rééssayer.");
+	}
+
+	public function connecter($pseudo, $mdp) {
 		// Si la fonction renvoie "true"
 		if ($this->utilisateur->verifierUtilisateur($pseudo, $mdp)) {
 			// On met la variable de session à "true"
