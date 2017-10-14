@@ -11,10 +11,12 @@ class Utilisateur extends Modele {
 	// Vérification du pseudo et mdp, fonction utilisée pour se connecter
 	public function verifierIdentifiants($pseudo, $mdp) {
 		$mdp_hashe = hash("sha256", $mdp);
-		$utilisateur = "";
+		
+		$sql = 'select pseudo, mdp from utilisateurs where pseudo = ?'
+				. 'and mdp = ?';
+		$resultat = $this->executerRequete($sql, array($pseudo, $mdp_hashe));
 
-		// On compare les identifiants du formulaire à ceux présents dans le fichier
-		if ($utilisateur === $identifiants) {
+		if ($resultat->rowCount() === 1) {
 			return true;
 		}
 		else {
@@ -29,17 +31,14 @@ class Utilisateur extends Modele {
 		$sql = 'select pseudo from utilisateurs where pseudo = ?';
 		$resultat = $this->executerRequete($sql, array($pseudo));
 
-		if ($mdp != "" && $pseudo != "") {
-			if ($resultat->rowCount() < 1) { // Si le pseudo est déjà présent dans la BDD, alors le nombre sera supérieur à 0
-				$mdp_hashe = hash("sha256", $mdp);
-				$sql = 'insert into utilisateurs(pseudo, mdp)'
-						. 'values(?, ?)';
-				$this->executerRequete($sql, array($pseudo, $mdp_hashe));
-			}
-			else
-				throw new Exception("Ce pseudo est déjà utilisé par un autre membre.");
+		if ($resultat->rowCount() < 1) { // Si le pseudo est déjà présent dans la BDD, alors le nombre sera supérieur à 0
+			$mdp_hashe = hash("sha256", $mdp);
+			$sql = 'insert into utilisateurs(pseudo, mdp, date_inscription)'
+					. 'values(?, ?, NOW())';
+
+			$this->executerRequete($sql, array($pseudo, $mdp_hashe));
 		}
 		else
-			throw new Exception("Vous devez indiquer un pseudo ainsi qu'un mot de passe !");
+			throw new Exception("Ce pseudo est déjà utilisé par un autre membre.");
 	}
 }

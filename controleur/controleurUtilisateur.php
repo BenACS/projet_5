@@ -12,25 +12,30 @@ class ControleurUtilisateur {
 	}
 
 	public function inscrire($pseudo, $mdp, $confirmer_mdp) {
-		if ($mdp === $confirmer_mdp) {
-			$this->utilisateur->ajouterUtilisateur($pseudo, $mdp);
+		if ($mdp != "" && $pseudo != "") {
+			if ($mdp === $confirmer_mdp) {
+				$this->utilisateur->ajouterUtilisateur($pseudo, $mdp);
+			}
+			else
+				throw new Exception("Les mots de passe ne correspondent pas. Veuillez rééssayer.");
 		}
 		else
-			throw new Exception("Les mots de passe ne correspondent pas. Veuillez rééssayer.");
+			throw new Exception("Vous devez indiquer un pseudo ainsi qu'un mot de passe !");
 	}
 
 	public function connecter($pseudo, $mdp) {
 		// Si la fonction renvoie "true"
-		if ($this->utilisateur->verifierUtilisateur($pseudo, $mdp)) {
+		if ($this->utilisateur->verifierIdentifiants($pseudo, $mdp)) {
 			// On met la variable de session à "true"
 			$_SESSION['login'] = true;
 
 			// On génère / affiche l'interface admin
-			$this->pageUtilisateur() ;
+			$vue = new Vue("Accueil");
+       		$vue->generer(array());
 		}
 		else {
 			// Si la fonction ne renvoie pas "true", on affiche un message d'erreur
-			throw new Exception("Pseudo ou Mot de passe incorrect");
+			throw new Exception("Pseudo ou Mot de passe incorrect.");
 		}
 	}
 

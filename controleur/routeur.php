@@ -23,16 +23,22 @@ class Routeur {
                         $vue = new Vue("FichePerso");
                         $vue->generer(array());
                     break;
+
                     case 'inscription':
                         $pseudo = $this->getParametre($_POST, 'pseudo');
                         $mdp = $this->getParametre($_POST, 'mdp');
                         $confirmer_mdp = $this->getParametre($_POST, 'confirmer_mdp');
                         $this->ctrlUtilisateur->inscrire($pseudo, $mdp, $confirmer_mdp);
                     break;
+
                     case 'connexion':
                         $pseudo = $this->getParametre($_POST, 'pseudo');
                         $mdp = $this->getParametre($_POST, 'mdp');
                         $this->ctrlUtilisateur->connecter($pseudo, $mdp);
+                    break;
+
+                    case 'deconnexion':
+                        $this->ctrlUtilisateur->deconnecter();
                     break;
                 }
             }
