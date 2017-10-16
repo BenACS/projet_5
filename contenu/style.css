@@ -6,7 +6,8 @@ html, body {
 /* BARRE DE NAVIGATION */
 
 nav {
-	background: pink;
+	background: -webkit-linear-gradient(top, rgb(39, 39, 39), rgb(60, 60, 60));
+	height: 30px;
 }
 
 nav ul {
@@ -16,11 +17,19 @@ nav ul {
     justify-content: space-around;
 }
 
+nav a {
+	color: white;
+}
+
+nav li {
+	font-size: 1.5em;
+}
+
 /* CONNEXION & INSCRIPTION */
 
 #formConnexion, #formInscription {
 	display: none; /* Obligatoire */
-	background: cyan;
+	background: -webkit-linear-gradient(top, rgb(39, 39, 39), rgb(60, 60, 60));;
 	padding: 4px;
 	border: 1px solid black;
 	border-radius: 4px;

@@ -1,17 +1,20 @@
 <?php
 
-require_once 'controleur/controleurUtilisateur.php';
 require_once 'controleur/controleurAccueil.php';
+require_once 'controleur/controleurUtilisateur.php';
+require_once 'controleur/controleurFiche.php';
 require_once 'vue/vue.php';
 
 class Routeur {
 
     private $ctrlAccueil;
     private $ctrlUtilisateur;
+    private $ctrlFiche;
 
     public function __construct() {
         $this->ctrlAccueil = new ControleurAccueil();
         $this->ctrlUtilisateur = new ControleurUtilisateur();
+        $this->ctrlFiche = new ControleurFiche();
     }
 
     // Route une requête entrante : exécution l'action associée
@@ -19,11 +22,22 @@ class Routeur {
         try {
             if (isset($_GET['action'])) {
                 switch($_GET['action']) {
+                    
+                    // Actions relatives aux fiches JDR
                     case 'nouvFiche':
                         $vue = new Vue("FichePerso");
                         $vue->generer(array());
                     break;
 
+                    case 'listeFiches':
+                        $this->ctrlFiche->afficherListe();
+                    break;
+
+                    case 'creerFiche':
+                        $this->ctrlFiche->creerFiche();
+                    break;
+
+                    // Actions relatives aux utilisateurs
                     case 'inscription':
                         $pseudo = $this->getParametre($_POST, 'pseudo');
                         $mdp = $this->getParametre($_POST, 'mdp');

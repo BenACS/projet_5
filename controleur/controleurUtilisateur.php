@@ -29,14 +29,12 @@ class ControleurUtilisateur {
 			// On met la variable de session à "true"
 			$_SESSION['login'] = true;
 
-			// On génère / affiche l'interface admin
 			$vue = new Vue("Accueil");
        		$vue->generer(array());
 		}
-		else {
+		else 
 			// Si la fonction ne renvoie pas "true", on affiche un message d'erreur
 			throw new Exception("Pseudo ou Mot de passe incorrect.");
-		}
 	}
 
 	public function deconnecter() {

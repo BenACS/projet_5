@@ -12,7 +12,7 @@ class Utilisateur extends Modele {
 	public function verifierIdentifiants($pseudo, $mdp) {
 		$mdp_hashe = hash("sha256", $mdp);
 		
-		$sql = 'select pseudo, mdp from utilisateurs where pseudo = ?'
+		$sql = 'select id, pseudo, mdp from utilisateurs where pseudo = ?'
 				. 'and mdp = ?';
 		$resultat = $this->executerRequete($sql, array($pseudo, $mdp_hashe));
 

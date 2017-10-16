@@ -1,4 +1,4 @@
-<form id="formCreationPerso" method="POST">
+<form id="formCreationPerso" method="POST" action="index.php?action=creerFiche">
 	<div id="statusPerso">
 		<!-- Infos de base -->
 		<div id="infos">

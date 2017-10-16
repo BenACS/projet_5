@@ -12,5 +12,4 @@ class ControleurAccueil {
         $vue = new Vue("Accueil");
         $vue->generer(array());
     }
-
 }
