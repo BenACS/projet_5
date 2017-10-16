@@ -23,7 +23,7 @@ class ControleurFiche {
 
         $fiches = $this->fiche->ajouterFiche($idU, $nom, $race, $sexe, $classe, $metier, $force, $dexterite, $constitution, 
                                 $intelligence, $sagesse, $charisme, $equipement, $objets, $competences, $sorts);
-        $vue = new Vue("ficheJDR");
-        $vue->generer(array('fiches' => $fiches));
+        $vue = new Vue("FicheJDR");
+        $vue->generer(array());
     }
 }

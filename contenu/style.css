@@ -82,6 +82,23 @@ nav li {
 	text-align: center;
 }
 
+/* FICHE PERSO (à imprimer) */
+
+#ficheJDR {
+	background: rgba(39, 39, 39, 0.5);
+	margin: 5px;
+}
+
+#ficheJDR p {
+	margin: 0;
+}
+
+.inventaire_competences {
+	font-size: 1.75em;
+	text-decoration: underline;
+	font-style: italic;
+}
+
 /* LISTE FICHES PERSO */
 
 #conteneurFiches {
