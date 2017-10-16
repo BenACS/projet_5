@@ -9,15 +9,15 @@ class Utilisateur extends Modele {
 	}
 
 	// Vérification du pseudo et mdp, fonction utilisée pour se connecter
-	public function verifierIdentifiants($pseudo, $mdp) {
+	public function recupID($pseudo, $mdp) {
 		$mdp_hashe = hash("sha256", $mdp);
 		
 		$sql = 'select id, pseudo, mdp from utilisateurs where pseudo = ?'
 				. 'and mdp = ?';
-		$resultat = $this->executerRequete($sql, array($pseudo, $mdp_hashe));
+		$utilisateur = $this->executerRequete($sql, array($pseudo, $mdp_hashe));
 
-		if ($resultat->rowCount() === 1) {
-			return true;
+		if ($utilisateur->rowCount() === 1) {
+			return $utilisateur->fetch();
 		}
 		else {
 			return false;

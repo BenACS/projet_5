@@ -29,22 +29,22 @@
 		<!-- Stats -->
 		<div id="stats">
 			<label for="force">Force</label>
-			<input type="number" name="" min="1" max="70"></br>
+			<input type="number" name="force" min="1" max="70"></br>
 
 			<label for="dexterite">Dexterite</label>
-			<input type="number" name="" min="1" max="70"></br>
+			<input type="number" name="dexterite" min="1" max="70"></br>
 
 			<label for="constitution">Constitution</label>
-			<input type="number" name="" min="1" max="70"></br>
+			<input type="number" name="constitution" min="1" max="70"></br>
 
 			<label for="intelligence">Intelligence</label>
-			<input type="number" name="" min="1" max="70"></br>
+			<input type="number" name="intelligence" min="1" max="70"></br>
 
 			<label for="sagesse">Sagesse</label>
-			<input type="number" name="" min="1" max="70"></br>
+			<input type="number" name="sagesse" min="1" max="70"></br>
 
 			<label for="charisme">Charisme</label>
-			<input type="number" name="" min="1" max="70">
+			<input type="number" name="charisme" min="1" max="70">
 		</div>
 	</div>
 	<div id="inventairePerso">
@@ -54,7 +54,7 @@
 			<textarea name="equipement" placeholder="Armures, Armes, etc"></textarea></br>
 
 			<label for="objets">Objets :</label></br>
-			<textarea name="objects"></textarea>
+			<textarea name="objets"></textarea>
 		</div>
 
 		<!-- Compétences & sorts -->

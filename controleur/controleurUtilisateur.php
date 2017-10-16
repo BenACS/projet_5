@@ -24,13 +24,17 @@ class ControleurUtilisateur {
 	}
 
 	public function connecter($pseudo, $mdp) {
+
+		$utilisateur = $this->utilisateur->recupID($pseudo, $mdp);
+
 		// Si la fonction renvoie "true"
-		if ($this->utilisateur->verifierIdentifiants($pseudo, $mdp)) {
-			// On met la variable de session à "true"
-			$_SESSION['login'] = true;
+		if ($this->utilisateur->recupID($pseudo, $mdp)) {
+
+			$_SESSION['login'] = true; // On met la variable de session à "true"
+			$_SESSION['id_utilisateur'] = $utilisateur[0]; // On met l'ID de l'utilisateur dans une variable de session
 
 			$vue = new Vue("Accueil");
-       		$vue->generer(array());
+       		$vue->generer(array('utilisateur' => $utilisateur));
 		}
 		else 
 			// Si la fonction ne renvoie pas "true", on affiche un message d'erreur
@@ -38,8 +42,8 @@ class ControleurUtilisateur {
 	}
 
 	public function deconnecter() {
-		// On met la variable de session à "false"
-		$_SESSION['login'] = false;
+		$_SESSION['login'] = false; // On met la variable de session à "false"
+		unset($_SESSION['id_utilisateur']); // On supprimer la variable de session contenant l'ID de l'utilisateur
 
 		// On génère / affiche la vue d'accueil du blog
 		$vue = new Vue("Accueil");

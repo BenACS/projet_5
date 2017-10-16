@@ -1,6 +1,12 @@
 html, body {
     margin: 0;
     padding: 0;
+    height: 100%;
+}
+
+body {
+	background: url('../img/10339_l.jpg') no-repeat;
+    background-size: 100% 100%;
 }
 
 /* BARRE DE NAVIGATION */
@@ -18,7 +24,11 @@ nav ul {
 }
 
 nav a {
-	color: white;
+	color: rgb(205, 155, 29);
+}
+
+nav a:hover {
+	color: rgb(205, 173, 0);
 }
 
 nav li {
@@ -29,7 +39,7 @@ nav li {
 
 #formConnexion, #formInscription {
 	display: none; /* Obligatoire */
-	background: -webkit-linear-gradient(top, rgb(39, 39, 39), rgb(60, 60, 60));;
+	background: -webkit-linear-gradient(top, rgb(39, 39, 39), rgb(60, 60, 60));
 	padding: 4px;
 	border: 1px solid black;
 	border-radius: 4px;
@@ -70,4 +80,30 @@ nav li {
 
 #boutonsFiche {
 	text-align: center;
+}
+
+/* LISTE FICHES PERSO */
+
+#conteneurFiches {
+	margin: 0 2.5px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+}
+
+article {
+	margin: 2.5px;
+	padding: 4px;
+	width: 15%;
+	text-align: center;
+	background: rgba(39, 39, 39, 0.25);
+}
+
+article p {
+	margin: 0;
+	text-align: left;
+}
+
+article, article button {
+	border-radius: 4px;
 }

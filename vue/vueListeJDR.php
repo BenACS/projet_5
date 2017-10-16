@@ -1,11 +1,16 @@
+<div id="conteneurFiches">
 <?php foreach ($fiches as $fiche): ?>
     <article>
-        <header>
-            <a href="<?= "index.php?action=fichet&id=" . $fiche['id'] ?>">
-                <h2 class="titreBillet"><?= htmlspecialchars($fiche['titre']) ?></h2>
-            </a>
-            <p>posté le <?= htmlspecialchars($fiche['date']); ?></p>
-        </header>
+        <p>Nom : <?= htmlspecialchars($fiche['nom']) ?></br>
+         Sexe : <?= htmlspecialchars($fiche['sexe']) ?></br>
+         Race : <?= htmlspecialchars($fiche['race']) ?></br>
+
+        Classe : <?= htmlspecialchars($fiche['classe']) ?></br>
+         Métier : <?= htmlspecialchars($fiche['metier']) ?></br>
+         Niveau : <?= htmlspecialchars($fiche['niveau']) ?></br>
+         Or : <?= htmlspecialchars($fiche['argent']) ?>
+        </p></br>
+        <button onclick="index.php?action=creerFiche">Afficher la fiche de ce personnage</button>
     </article>
-    <hr />
 <?php endforeach; ?>
+</div>

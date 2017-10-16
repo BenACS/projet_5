@@ -30,11 +30,50 @@ class Routeur {
                     break;
 
                     case 'listeFiches':
-                        $this->ctrlFiche->afficherListe();
+                        $idU = $_SESSION['id_utilisateur'];
+                        $this->ctrlFiche->afficherListe($idU);
                     break;
 
                     case 'creerFiche':
-                        $this->ctrlFiche->creerFiche();
+                        if ($_SESSION['id_utilisateur']) {
+                            $idU = $_SESSION['id_utilisateur'];
+                            $nom = $this->getParametre($_POST, 'nom');
+                            $race = $this->getParametre($_POST, 'race');
+                            $sexe = $this->getParametre($_POST, 'sexe');
+                            $classe = $this->getParametre($_POST, 'classe');
+                            $metier = $this->getParametre($_POST, 'metier');
+                            $force = $this->getParametre($_POST, 'force');
+                            $dexterite = $this->getParametre($_POST, 'dexterite');
+                            $constitution = $this->getParametre($_POST, 'constitution');
+                            $intelligence = $this->getParametre($_POST, 'intelligence');
+                            $sagesse = $this->getParametre($_POST, 'sagesse');
+                            $charisme = $this->getParametre($_POST, 'charisme');
+                            $equipement = $this->getParametre($_POST, 'equipement');
+                            $objets = $this->getParametre($_POST, 'objets');
+                            $competences = $this->getParametre($_POST, 'competences');
+                            $sorts = $this->getParametre($_POST, 'sorts');
+                            $this->ctrlFiche->creerFiche($idU, $nom, $race, $sexe, $classe, $metier, $force, $dexterite, $constitution, 
+                                    $intelligence, $sagesse, $charisme, $equipement, $objets, $competences, $sorts);
+                        }
+                        else {
+                            $nom = $this->getParametre($_POST, 'nom');
+                            $race = $this->getParametre($_POST, 'race');
+                            $sexe = $this->getParametre($_POST, 'sexe');
+                            $classe = $this->getParametre($_POST, 'classe');
+                            $metier = $this->getParametre($_POST, 'metier');
+                            $force = $this->getParametre($_POST, 'force');
+                            $dexterite = $this->getParametre($_POST, 'dexterite');
+                            $constitution = $this->getParametre($_POST, 'constitution');
+                            $intelligence = $this->getParametre($_POST, 'intelligence');
+                            $sagesse = $this->getParametre($_POST, 'sagesse');
+                            $charisme = $this->getParametre($_POST, 'charisme');
+                            $equipement = $this->getParametre($_POST, 'equipement');
+                            $objets = $this->getParametre($_POST, 'objets');
+                            $competences = $this->getParametre($_POST, 'competences');
+                            $sorts = $this->getParametre($_POST, 'sorts');
+                            $this->ctrlFiche->creerFiche($nom, $race, $sexe, $classe, $metier, $force, $dexterite, $constitution, 
+                                    $intelligence, $sagesse, $charisme, $equipement, $objets, $competences, $sorts);
+                        }
                     break;
 
                     // Actions relatives aux utilisateurs

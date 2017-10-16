@@ -12,15 +12,18 @@ class ControleurFiche {
     }
 
 	// Affiche la liste de toutes les fiches d'un utilisateur
-    public function afficherListe() {
-    	$fiches = $this->fiche->getFiches();
+    public function afficherListe($idU) {
+    	$fiches = $this->fiche->recupFiches($idU);
         $vue = new Vue("ListeJDR");
-        $vue->generer(array());
+        $vue->generer(array('fiches' => $fiches));
     }
 
-    public function creerFiche() {
+    public function creerFiche($idU, $nom, $race, $sexe, $classe, $metier, $force, $dexterite, $constitution, 
+                                $intelligence, $sagesse, $charisme, $equipement, $objets, $competences, $sorts) {
 
-        $vue = new Vue("");
-        $vue->generer(array());
+        $fiches = $this->fiche->ajouterFiche($idU, $nom, $race, $sexe, $classe, $metier, $force, $dexterite, $constitution, 
+                                $intelligence, $sagesse, $charisme, $equipement, $objets, $competences, $sorts);
+        $vue = new Vue("ficheJDR");
+        $vue->generer(array('fiches' => $fiches));
     }
 }
