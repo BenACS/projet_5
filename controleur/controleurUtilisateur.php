@@ -15,6 +15,12 @@ class ControleurUtilisateur {
 		if ($mdp != "" && $pseudo != "") {
 			if ($mdp === $confirmer_mdp) {
 				$this->utilisateur->ajouterUtilisateur($pseudo, $mdp);
+
+				$utilisateur = $this->utilisateur->recupID($pseudo, $mdp);
+				$_SESSION['login'] = true;
+				$_SESSION['id_utilisateur'] = $utilisateur[0];
+				$vue = new Vue("Accueil");
+       			$vue->generer(array('utilisateur' => $utilisateur));
 			}
 			else
 				throw new Exception("Les mots de passe ne correspondent pas. Veuillez rééssayer.");
