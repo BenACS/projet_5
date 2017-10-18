@@ -12,8 +12,9 @@
         </p></br>
         <form method="get" action="index.php?action=creerFiche">
             <button type="submit" name="action" value="creerFiche">Afficher la fiche</button></br>
-            <button type="submit" name="action" value="nouvFiche">Modifier ce personnage</button></br>
-            <button type="submit" name="">Supprimer ce personnage</button>
+            <button type="submit" name="action" value="modifFiche">Modifier ce personnage</button></br>
+            <input type="hidden" name="idFiche" value="<?= $fiche['id'] ?>">
+            <button type="submit" name="action" value="supprFiche">Supprimer ce personnage</button>
         </form>
     </article>
 <?php endforeach; ?>

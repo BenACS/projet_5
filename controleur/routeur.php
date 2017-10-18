@@ -62,6 +62,15 @@ class Routeur {
                         }
                     break;
 
+                    case 'modifFiche':
+                    break;
+
+                    case 'supprFiche':
+                        $idFiche = $this->getParametre($_GET, 'idFiche');
+                        $this->ctrlFiche->supprimerFiche($idFiche);
+                        $this->ctrlAccueil->accueil();
+                    break;
+
                     // Actions relatives aux utilisateurs
                     case 'inscription':
                         $pseudo = $this->getParametre($_POST, 'pseudo');

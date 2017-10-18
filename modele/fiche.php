@@ -23,4 +23,9 @@ class Fiche extends Modele {
         $fiches = $this->executerRequete($sql, array($idU, $nom, $race, $sexe, $classe, $metier, $equipement,
         		$objets, $competences, $sorts, $force, $dexterite, $constitution, $intelligence, $sagesse, $charisme));
 	}
+
+	public function supprFiche($idFiche) {
+		$sql = 'delete from personnages where id=?';
+		$fiches = $this->executerRequete($sql, array($idFiche));
+	}
 }

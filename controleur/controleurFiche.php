@@ -26,4 +26,8 @@ class ControleurFiche {
         $vue = new Vue("FicheJDR");
         $vue->generer(array());
     }
+
+    public function supprimerFiche($idFiche) {
+        $fiches = $this->fiche->supprFiche($idFiche);
+    }
 }
