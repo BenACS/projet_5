@@ -51,12 +51,12 @@ class Routeur {
                         $competences = $this->getParametre($_POST, 'competences');
                         $sorts = $this->getParametre($_POST, 'sorts');
 
-                        if (isset($_SESSION['id_utilisateur'])) {
+                        if (isset($_SESSION['id_utilisateur'])) { // Si l'utilisatzeur est connecté
                             $idU = $_SESSION['id_utilisateur'];
                             $this->ctrlFiche->creerFiche($idU, $nom, $race, $sexe, $classe, $metier, $force, $dexterite, $constitution, 
                                     $intelligence, $sagesse, $charisme, $equipement, $objets, $competences, $sorts);
                         }
-                        else {
+                        else { // Si l'utilisateur n'est pas connecté
                             $vue = new Vue("FicheJDR");
                             $vue->generer(array());
                         }

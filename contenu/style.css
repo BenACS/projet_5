@@ -110,7 +110,7 @@ nav li {
 
 article {
 	margin: 2.5px;
-	padding: 4px;
+	padding: 4px 4px 0px 4px;
 	width: 15%;
 	text-align: center;
 	background: rgba(39, 39, 39, 0.25);
@@ -123,4 +123,9 @@ article p {
 
 article, article button {
 	border-radius: 4px;
+}
+
+#conteneurFiches button {
+	width: 100%;
+	margin-bottom: 4px;
 }

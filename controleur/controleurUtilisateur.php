@@ -49,7 +49,7 @@ class ControleurUtilisateur {
 
 	public function deconnecter() {
 		$_SESSION['login'] = false; // On met la variable de session à "false"
-		unset($_SESSION['id_utilisateur']); // On supprimer la variable de session contenant l'ID de l'utilisateur
+		unset($_SESSION['id_utilisateur']); // On supprime la variable de session contenant l'ID de l'utilisateur
 
 		// On génère / affiche la vue d'accueil du blog
 		$vue = new Vue("Accueil");

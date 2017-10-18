@@ -18,13 +18,13 @@
 		Charisme : <?= htmlspecialchars($_POST['charisme']) ?>
 	</div>
 	<p class="inventaire_competences">Equipement :</p></br>
-	<?= htmlspecialchars($_POST['equipement']) ?></br>
+	<?= htmlspecialchars($_POST['equipement']) ?>
 
 	<p class="inventaire_competences">Objets :</p></br>
-	<?= htmlspecialchars($_POST['objets']) ?></br>
+	<?= htmlspecialchars($_POST['objets']) ?>
 
 	<p class="inventaire_competences">Compétences :</p></br>
-	<?= htmlspecialchars($_POST['competences']) ?></br>
+	<?= htmlspecialchars($_POST['competences']) ?>
 
 	<p class="inventaire_competences">Sorts :</p></br>
 	<?= htmlspecialchars($_POST['sorts']) ?>

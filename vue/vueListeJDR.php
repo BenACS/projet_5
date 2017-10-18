@@ -10,7 +10,11 @@
          Niveau : <?= htmlspecialchars($fiche['niveau']) ?></br>
          Or : <?= htmlspecialchars($fiche['argent']) ?>
         </p></br>
-        <button onclick="index.php?action=creerFiche">Afficher la fiche de ce personnage</button>
+        <form method="get" action="index.php?action=creerFiche">
+            <button type="submit" name="action" value="creerFiche">Afficher la fiche</button></br>
+            <button type="submit" name="action" value="nouvFiche">Modifier ce personnage</button></br>
+            <button type="submit" name="">Supprimer ce personnage</button>
+        </form>
     </article>
 <?php endforeach; ?>
 </div>
