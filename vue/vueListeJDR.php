@@ -14,6 +14,7 @@
             <button type="submit" name="action" value="creerFiche">Afficher la fiche</button></br>
             <button type="submit" name="action" value="modifFiche">Modifier ce personnage</button></br>
             <input type="hidden" name="idFiche" value="<?= $fiche['id'] ?>">
+            <input type="hidden" name="idUt" value="<?= $fiche['id_utilisateur'] ?>">
             <button type="submit" name="action" value="supprFiche">Supprimer ce personnage</button>
         </form>
     </article>

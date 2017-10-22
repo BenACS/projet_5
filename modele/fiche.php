@@ -15,6 +15,15 @@ class Fiche extends Modele {
         return $fiches;
 	}
 
+	public function recupFiche($idU, $idFiche) {
+		$sql = 'select *'
+				. ' from personnages'
+				. ' where id_utilisateur = ?'
+				. ' and id = ?';
+        $donneesFiche = $this->executerRequete($sql, array($idU, $idFiche));
+        return $donneesFiche->fetch();
+	}
+
 	public function ajouterFiche($idU, $nom, $race, $sexe, $classe, $metier, $force, $dexterite, $constitution, 
                                 $intelligence, $sagesse, $charisme, $equipement, $objets, $competences, $sorts) {
 
@@ -25,7 +34,12 @@ class Fiche extends Modele {
 	}
 
 	public function supprFiche($idFiche) {
-		$sql = 'delete from personnages where id=?';
+		$sql = 'delete from personnages where id = ?';
 		$fiches = $this->executerRequete($sql, array($idFiche));
+	}
+
+	public function modifFiche($idFiche, $idUt) {
+		$sql = 'update billets set titre = ?, contenu = ? where id = ?';
+		$fiches = $this->executerRequete($sql, array());
 	}
 }

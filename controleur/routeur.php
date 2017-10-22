@@ -30,8 +30,13 @@ class Routeur {
                     break;
 
                     case 'listeFiches':
-                        $idU = $_SESSION['id_utilisateur'];
-                        $this->ctrlFiche->afficherListe($idU);
+                        if (isset($_SESSION['id_utilisateur'])) {
+                            $idU = $_SESSION['id_utilisateur'];
+                            $this->ctrlFiche->afficherListe($idU);
+                        }
+                        else {
+                            $this->ctrlAccueil->accueil();
+                        }
                     break;
 
                     case 'creerFiche':
@@ -63,12 +68,28 @@ class Routeur {
                     break;
 
                     case 'modifFiche':
+                        if (isset($_SESSION['id_utilisateur'])) {
+                            $idFiche = $this->getParametre($_GET, 'idFiche');
+                            $idUt = $this->getParametre($_GET, 'idUt');
+                            $idU = $_SESSION['id_utilisateur'];
+                            $this->ctrlFiche->afficherFiche($idFiche, $idUt, $idU);
+                        }
+                        else {
+                            $this->ctrlAccueil->accueil();
+                        }
                     break;
 
                     case 'supprFiche':
-                        $idFiche = $this->getParametre($_GET, 'idFiche');
-                        $this->ctrlFiche->supprimerFiche($idFiche);
-                        $this->ctrlAccueil->accueil();
+                        if (isset($_SESSION['id_utilisateur'])) {
+                            $idFiche = $this->getParametre($_GET, 'idFiche');
+                            $this->ctrlFiche->supprimerFiche($idFiche);
+
+                            $idU = $_SESSION['id_utilisateur'];
+                            $this->ctrlFiche->afficherListe($idU);
+                        }
+                        else {
+                            $this->ctrlAccueil->accueil();
+                        }
                     break;
 
                     // Actions relatives aux utilisateurs

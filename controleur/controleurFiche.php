@@ -18,6 +18,14 @@ class ControleurFiche {
         $vue->generer(array('fiches' => $fiches));
     }
 
+    public function afficherFiche($idFiche, $idUt, $idU) {
+        if ($idUt === $idU) {
+            $donneesFiche = $this->fiche->recupFiche($idU, $idFiche);
+            $vue = new Vue("ModifFichePerso");
+            $vue->generer(array('fiche' => $donneesFiche));
+        }
+    }
+
     public function creerFiche($idU, $nom, $race, $sexe, $classe, $metier, $force, $dexterite, $constitution, 
                                 $intelligence, $sagesse, $charisme, $equipement, $objets, $competences, $sorts) {
 
@@ -29,5 +37,12 @@ class ControleurFiche {
 
     public function supprimerFiche($idFiche) {
         $fiches = $this->fiche->supprFiche($idFiche);
+    }
+
+    public function modifierFiche($idFiche, $idUt, $idU) {
+        if ($idUt === $idU) {
+            $vue = new Vue("ModifFichePerso");
+            $vue->generer(array());
+        }
     }
 }
