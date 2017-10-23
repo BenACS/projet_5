@@ -32,6 +32,8 @@ class ControleurFiche {
             $vue = new Vue("ModifFichePerso");
             $vue->generer(array('fiche' => $donneesFiche));
         }
+        else
+            throw new Exception("Vous ne pouvez pas modifier cette fiche car elle ne vous appartient pas.");
     }
 
     public function creerFiche($idU, $nom, $race, $sexe, $classe, $metier, $force, $dexterite, $constitution, 
@@ -57,5 +59,7 @@ class ControleurFiche {
             $vue = new Vue("FicheJDR");
             $vue->generer(array());
         }
+        else
+            throw new Exception("Vous ne pouvez pas modifier cette fiche car elle ne vous appartient pas.");
     }
 }
