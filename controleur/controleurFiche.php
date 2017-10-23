@@ -62,4 +62,10 @@ class ControleurFiche {
         else
             throw new Exception("Vous ne pouvez pas modifier cette fiche car elle ne vous appartient pas.");
     }
+
+    public function partagerFiche($idFiche) {
+        $donneesFiche = $this->fiche->recupFichePublic($idFiche);
+            $vue = new Vue("FicheJDRExistante");
+            $vue->generer(array('fiche' => $donneesFiche));
+    }
 }

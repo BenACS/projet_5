@@ -40,6 +40,7 @@ nav li {
 #formConnexion, #formInscription {
 	display: none; /* Obligatoire */
 	background: -webkit-linear-gradient(top, rgb(39, 39, 39), rgb(60, 60, 60));
+	color: rgb(205, 155, 29);
 	padding: 4px;
 	border: 1px solid black;
 	border-radius: 4px;

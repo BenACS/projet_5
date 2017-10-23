@@ -20,5 +20,6 @@
 			<?= $contenu ?>
 		</div>
 		<script src="vue/js/popups.js"></script>
+        <script src='https://www.google.com/recaptcha/api.js?hl=fr'></script>
 	</body>
 </html>

@@ -67,4 +67,12 @@ class Fiche extends Modele {
                                 $force, $dexterite, $constitution, $intelligence, $sagesse, $charisme, $equipement,
                                 $objets, $competences, $sorts, $pv, $pm, $argent, $idU, $idFiche));
 	}
+
+	public function recupFichePublic($idFiche) {
+		$sql = 'select *'
+				. ' from personnages'
+				. ' where id = ?';
+        $donneesFiche = $this->executerRequete($sql, array($idFiche));
+        return $donneesFiche->fetch();
+	}
 }

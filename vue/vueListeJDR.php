@@ -11,6 +11,7 @@
          Or : <?= htmlspecialchars($fiche['argent']) ?>
         </p></br>
         <form method="get" action="index.php?action=">
+            <button type="submit" name="action" value="partagerFiche">Partager cette fiche</button></br>
             <button type="submit" name="action" value="recupFiche">Afficher la fiche</button></br>
             <button type="submit" name="action" value="modifFiche">Modifier ce personnage</button></br>
             <input type="hidden" name="idFiche" value="<?= $fiche['id'] ?>">

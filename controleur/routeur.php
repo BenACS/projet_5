@@ -139,11 +139,31 @@ class Routeur {
                         }
                     break;
 
+                    case 'partagerFiche':
+                        $idFiche = $this->getParametre($_GET, 'idFiche');
+                        $this->ctrlFiche->partagerFiche($idFiche);
+                    break;
+
                     // Actions relatives aux utilisateurs
                     case 'inscription':
                         $pseudo = $this->getParametre($_POST, 'pseudo');
                         $mdp = $this->getParametre($_POST, 'mdp');
                         $confirmer_mdp = $this->getParametre($_POST, 'confirmer_mdp');
+
+                        // cle secrete captcha
+                        $secret = "6LfBejUUAAAAAIxjkmzYyCnAt9VTIS_GWtVN3ZRp";
+                         
+                        // reponse vide
+                        $response = null;
+                         
+                        // verification cle secrete
+                        $reCaptcha = new ReCaptcha($secret);
+                        if ($_POST["g-recaptcha-response"]) {
+                            $resp = $reCaptcha->verifyResponse(
+                                $_SERVER["REMOTE_ADDR"],
+                                $_POST["g-recaptcha-response"]
+                            );
+                        }
                         $this->ctrlUtilisateur->inscrire($pseudo, $mdp, $confirmer_mdp);
                     break;
 
