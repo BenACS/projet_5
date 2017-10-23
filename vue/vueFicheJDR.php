@@ -5,7 +5,12 @@
 			Sexe : <?= htmlspecialchars($_POST['sexe']) ?></br>
 			Race : <?= htmlspecialchars($_POST['race']) ?></br>
 			Classe : <?= htmlspecialchars($_POST['classe']) ?></br>
-			Métier : <?= htmlspecialchars($_POST['metier']) ?>
+			Métier : <?= htmlspecialchars($_POST['metier']) ?></br>
+			Or : <?= htmlspecialchars($_POST['argent']) ?></br>
+			Niveau : <?= htmlspecialchars($_POST['niveau']) ?></br>
+			Expérience : <?= htmlspecialchars($_POST['experience']) ?></br>
+			Points de vie : <?= htmlspecialchars($_POST['pv']) ?>
+			Points de magie : <?= htmlspecialchars($_POST['pm']) ?>
 		</p>
 	</div>
 	<div id="statsPerso">

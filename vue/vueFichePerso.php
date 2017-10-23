@@ -23,7 +23,22 @@
 			<input type="text" name="classe"></br>
 			
 			<label for="metier">Métier :</label></br>
-			<input type="text" name="metier">
+			<input type="text" name="metier"></br>
+
+			<label for="argent">Or :</label></br>
+			<input type="number" name="argent" min="0"></br>
+
+			<label for="niveau">Niveau :</label></br>
+			<input type="number" name="niveau" min="1"></br>
+
+			<label for="experience">Expérience :</label></br>
+			<input type="number" name="experience" min="0"></br></br>
+
+			<label for="pv">Points de vie :</label>
+			<input type="number" name="pv" min="0">
+
+			<label for="pm">Points de magie :</label>
+			<input type="number" name="pm" min="0">
 		</div>
 
 		<!-- Stats -->
@@ -65,7 +80,7 @@
 			<label for="sorts">Sorts :</label></br>
 			<textarea name="sorts"></textarea>
 		</div>
-	</div></br>
+	</div>
 
 	<!-- Confirmer / Réinitialiser -->
 	<div id="boutonsFiche">

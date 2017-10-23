@@ -38,8 +38,33 @@ class Fiche extends Modele {
 		$fiches = $this->executerRequete($sql, array($idFiche));
 	}
 
-	public function modifFiche($idFiche, $idUt) {
-		$sql = 'update billets set titre = ?, contenu = ? where id = ?';
-		$fiches = $this->executerRequete($sql, array());
+	public function modifierFiche($nom, $race, $sexe, $classe, $metier, $niveau, $experience,
+                                $force, $dexterite, $constitution, $intelligence, $sagesse, $charisme, $equipement,
+                                $objets, $competences, $sorts, $pv, $pm, $argent, $idU, $idFiche) {
+		$sql = 'update personnages set `nom` = ? ,'
+				. ' `race` = ?,'
+				. ' `sexe` = ?,'
+				. ' `classe` = ?,'
+				. ' `metier` = ?,'
+				. ' `niveau` = ?,'
+				. ' `experience` = ?,'
+				. ' `force` = ?,'
+				. ' `dexterite` = ?,'
+				. ' `constitution` = ?,'
+				. ' `intelligence` = ?,'
+				. ' `sagesse` = ?,'
+				. ' `charisme` = ?,'
+				. ' `equipement` = ?,'
+				. ' `objets` = ?,'
+				. ' `competences` = ?,'
+				. ' `sorts` = ?,'
+				. ' `pv` = ?,'
+				. ' `pm` = ?,'
+				. ' `argent` = ?'
+				. ' where `id_utilisateur` = ?'
+				. ' and `id` = ?';
+        $fiches = $this->executerRequete($sql, array($nom, $race, $sexe, $classe, $metier, $niveau, $experience,
+                                $force, $dexterite, $constitution, $intelligence, $sagesse, $charisme, $equipement,
+                                $objets, $competences, $sorts, $pv, $pm, $argent, $idU, $idFiche));
 	}
 }

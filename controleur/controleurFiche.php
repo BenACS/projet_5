@@ -21,6 +21,14 @@ class ControleurFiche {
     public function afficherFiche($idFiche, $idUt, $idU) {
         if ($idUt === $idU) {
             $donneesFiche = $this->fiche->recupFiche($idU, $idFiche);
+            $vue = new Vue("FicheJDRExistante");
+            $vue->generer(array('fiche' => $donneesFiche));
+        }
+    }
+
+    public function afficherFormModifFiche($idFiche, $idUt, $idU) {
+        if ($idUt === $idU) {
+            $donneesFiche = $this->fiche->recupFiche($idU, $idFiche);
             $vue = new Vue("ModifFichePerso");
             $vue->generer(array('fiche' => $donneesFiche));
         }
@@ -39,9 +47,14 @@ class ControleurFiche {
         $fiches = $this->fiche->supprFiche($idFiche);
     }
 
-    public function modifierFiche($idFiche, $idUt, $idU) {
+    public function modifierFiche($idUt, $nom, $race, $sexe, $classe, $metier, $niveau, $experience,
+                                $force, $dexterite, $constitution, $intelligence, $sagesse, $charisme, $equipement,
+                                $objets, $competences, $sorts, $pv, $pm, $argent, $idU, $idFiche) {
         if ($idUt === $idU) {
-            $vue = new Vue("ModifFichePerso");
+            $fiches = $this->fiche->modifierFiche($nom, $race, $sexe, $classe, $metier, $niveau, $experience,
+                                $force, $dexterite, $constitution, $intelligence, $sagesse, $charisme, $equipement,
+                                $objets, $competences, $sorts, $pv, $pm, $argent, $idU, $idFiche);
+            $vue = new Vue("FicheJDR");
             $vue->generer(array());
         }
     }

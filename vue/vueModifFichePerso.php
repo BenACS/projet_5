@@ -1,4 +1,4 @@
-<form id="formModifPerso" method="POST" action="index.php?action=creerFiche">
+<form id="formModifPerso" method="POST" action="index.php?action=majFiche">
 	<div id="statusPerso">
 		<!-- Infos de base -->
 		<div id="infos">
@@ -7,16 +7,16 @@
 
 			<label for="race">Race :</label></br>
 			<select name="race">
-				<option value="humain">Humain</option>
-				<option value="nain">Nain</option>
-				<option value="orc">Orc</option>
-				<option value="elfe">Elfe</option>
+				<option value="humain" <?php if($fiche['race'] == 'human') { echo 'selected="selected"';} ?>>Humain</option>
+				<option value="nain" <?php if ($fiche['race'] == 'nain') { echo 'selected="selected"';} ?>>Nain</option>
+				<option value="orc" <?php if ($fiche['race'] == 'orc') { echo 'selected="selected"';} ?>>Orc</option>
+				<option value="elfe" <?php if ($fiche['race'] == 'elfe') { echo 'selected="selected"';} ?>>Elfe</option>
 			</select></br>
 
 			<label for="sexe">Sexe :</label></br>
 			<select name="sexe">
-				<option value="M">Homme</option>
-				<option value="F">Femme</option>
+				<option value="M" <?php if ($fiche['sexe'] == 'M') { echo 'selected="selected"';} ?>>Homme</option>
+				<option value="F" <?php if ($fiche['sexe'] == 'F') { echo 'selected="selected"';} ?>>Femme</option>
 			</select></br>
 
 			<label for="classe">Classe :</label></br>
@@ -25,11 +25,20 @@
 			<label for="metier">Métier :</label></br>
 			<input type="text" name="metier" value="<?= htmlspecialchars($fiche['metier']) ?>"></br>
 
-			<label for="niveau">Niveau :</label></br>
-			<input type="text" name="niveau" value="<?= htmlspecialchars($fiche['niveau']) ?>"></br>
+			<label for="argent">Or :</label></br>
+			<input type="number" name="argent" min="0" value="<?= htmlspecialchars($fiche['argent']) ?>"></br>
 
-			<label for="experience">Experience :</label></br>
-			<input type="text" name="experience" value="<?= htmlspecialchars($fiche['experience']) ?>">
+			<label for="niveau">Niveau :</label></br>
+			<input type="number" name="niveau" min="1" value="<?= htmlspecialchars($fiche['niveau']) ?>"></br>
+
+			<label for="experience">Expérience :</label></br>
+			<input type="number" name="experience" min="0" value="<?= htmlspecialchars($fiche['experience']) ?>"></br></br>
+
+			<label for="pv">Points de vie :</label>
+			<input type="number" name="pv" min="0" value="<?= htmlspecialchars($fiche['pv']) ?>">
+
+			<label for="pm">Points de magie :</label>
+			<input type="number" name="pm" min="0" value="<?= htmlspecialchars($fiche['pm']) ?>">
 		</div>
 
 		<!-- Stats -->
@@ -71,10 +80,12 @@
 			<label for="sorts">Sorts :</label></br>
 			<textarea name="sorts"><?= htmlspecialchars($fiche['sorts']) ?></textarea>
 		</div>
-	</div></br>
+	</div>
 
 	<!-- Confirmer / Réinitialiser -->
 	<div id="boutonsFiche">
+		<input type="hidden" name="idFiche" value="<?= htmlspecialchars($fiche['id']) ?>">
+		<input type="hidden" name="idUt" value="<?= htmlspecialchars($fiche['id_utilisateur']) ?>">
 		<input type="submit" value="Enregistrer les modifications">
 		<input type="reset" value="Réinitialiser la fiche">
 	</div>

@@ -10,8 +10,8 @@
          Niveau : <?= htmlspecialchars($fiche['niveau']) ?></br>
          Or : <?= htmlspecialchars($fiche['argent']) ?>
         </p></br>
-        <form method="get" action="index.php?action=creerFiche">
-            <button type="submit" name="action" value="creerFiche">Afficher la fiche</button></br>
+        <form method="get" action="index.php?action=">
+            <button type="submit" name="action" value="recupFiche">Afficher la fiche</button></br>
             <button type="submit" name="action" value="modifFiche">Modifier ce personnage</button></br>
             <input type="hidden" name="idFiche" value="<?= $fiche['id'] ?>">
             <input type="hidden" name="idUt" value="<?= $fiche['id_utilisateur'] ?>">
