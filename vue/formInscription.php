@@ -9,7 +9,7 @@
 		<label for="confirmer_mdp">Confirmez le mot de passe :</label></br>
 		<input class="inputs_css" type="text" name="confirmer_mdp"></br>
 
-		<div class="g-recaptcha" data-sitekey="6LcePAATAAAAAGPRWgx90814DTjgt5sXnNbV5WaW"></div>
+		<div class="g-recaptcha" data-sitekey="6LcM0zUUAAAAAPUNIbf2g2zuI13M0dWGWPFNBdQT"></div>
 
 		<input type="submit" value="S'inscrire">
 	</form>

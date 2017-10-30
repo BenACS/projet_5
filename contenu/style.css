@@ -88,6 +88,8 @@ nav li {
 #ficheJDR {
 	background: rgba(39, 39, 39, 0.5);
 	margin: 5px;
+	padding: 5px;
+	border-radius: 4px;
 }
 
 #ficheJDR p {
@@ -98,6 +100,16 @@ nav li {
 	font-size: 1.75em;
 	text-decoration: underline;
 	font-style: italic;
+}
+
+#info_stats {
+	display:flex;
+}
+
+#ficheJDR div div {
+	border: 1px solid black;
+	margin-right: 2.5px;
+	padding: 0 2.5px;
 }
 
 /* LISTE FICHES PERSO */

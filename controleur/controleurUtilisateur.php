@@ -1,7 +1,7 @@
 <?php
 
 require_once 'modele/utilisateur.php';
-require_once 'Vue/Vue.php';
+require_once 'vue/vue.php';
 
 class ControleurUtilisateur {
 
