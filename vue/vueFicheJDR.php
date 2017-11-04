@@ -33,4 +33,8 @@
 
 	<p class="inventaire_competences">Sorts :</p></br>
 	<?= htmlspecialchars($_POST['sorts']) ?>
+
+	<form>
+		<button type="submit">Generer la version imprimable</button>
+	</form>
 </div>

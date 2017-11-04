@@ -1,5 +1,5 @@
 <?php
-require 'fpdf.php';
+require_once 'fpdf.php';
 
 class PDF_TextBox extends FPDF {
 

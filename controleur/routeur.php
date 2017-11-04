@@ -144,6 +144,11 @@ class Routeur {
                         $this->ctrlFiche->partagerFiche($idFiche);
                     break;
 
+                    case 'genererPDF':
+                        $idFiche = $this->getParametre($_POST, 'idFiche');
+                        $this->ctrlFiche->genererPDF($idFiche);
+                    break;
+
                     // Actions relatives aux utilisateurs
                     case 'inscription':
                         $pseudo = $this->getParametre($_POST, 'pseudo');

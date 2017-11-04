@@ -65,7 +65,13 @@ class ControleurFiche {
 
     public function partagerFiche($idFiche) {
         $donneesFiche = $this->fiche->recupFichePublic($idFiche);
-            $vue = new Vue("FicheJDRExistante");
-            $vue->generer(array('fiche' => $donneesFiche));
+        $vue = new Vue("FicheJDRExistante");
+        $vue->generer(array('fiche' => $donneesFiche));
+    }
+
+    public function genererPDF($idFiche) {
+        $donneesFiche = $this->fiche->recupFichePublic($idFiche);
+        $vue = new Vue("PDF");
+        $vue->generer(array('fiche' => $donneesFiche));
     }
 }

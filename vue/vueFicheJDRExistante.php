@@ -37,4 +37,8 @@
 		<p class="inventaire_competences">Sorts :</p></br>
 		<?= htmlspecialchars($fiche['sorts']) ?>
 	</div>
+	<form method="POST" action="index.php?action=genererPDF">
+		<input type="hidden" name="idFiche" value="<?= $fiche['id'] ?>">
+		<input type="submit" value="Generer la version imprimable">
+	</form>
 </div>
