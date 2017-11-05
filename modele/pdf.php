@@ -7,10 +7,8 @@ class PDF extends FPDF {
 	function Header() {
 	    // Police Arial gras 15
 	    $this->SetFont('Arial','B',15);
-	    // Décalage à droite
-	    $this->Cell(80);
 	    // Titre
-	    $this->Cell(30,10,'Personnage',0,0,'C');
+	    $this->Cell(187,10,'Fiche JDR',1,0,'C');
 	    // Saut de ligne
 	    $this->Ln(15);
 	}
